@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'placeholder_widget.dart';
 import 'authentication.dart';
+import 'Settings.dart';
 
 
 class Home extends StatefulWidget {
@@ -23,7 +24,7 @@ class _HomeState extends State<Home> {
     PlaceholderWidget(Colors.white),
     PlaceholderWidget(Colors.deepOrange),
     PlaceholderWidget(Colors.green),
-    PlaceholderWidget(Colors.brown)
+    Settings()
   ];
 
   _signOut() async {
