@@ -2,15 +2,40 @@ import 'package:flutter/material.dart';
 import 'licence.dart';
 import 'privacy_policy.dart';
 import 'about.dart';
-import 'licence.dart';
+import 'authentication.dart';
+
 
 
 class Settings extends StatelessWidget{
+  Settings({Key key, this.auth,this.logoutCallback}): super(key: key);
+  final BaseAuth auth;
+  final VoidCallback logoutCallback;
+
+
+  _signOut() async {
+    try {
+      await auth.signOut();
+      logoutCallback();
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context){
 
-    return  ListView(
+    return Scaffold(
+        appBar: AppBar(
+        title:Text("Settings"),
+            actions: <Widget>[
+          new FlatButton(
+              child: new Text('Logout',
+                  style: new TextStyle(fontSize: 17.0, color: Colors.white)),
+              onPressed:_signOut)
+        ],
+//
+    ),
+    body:  ListView(
       children: <Widget>[
         ListTile(
           leading: Icon(Icons.info,color:Color(0xff120023)),
@@ -44,7 +69,13 @@ class Settings extends StatelessWidget{
           color:Color(0xff120023)),
           title: Text('Share Ledi'),
         ),
+        ListTile(
+          leading: Icon(Icons.person,
+              color:Color(0xff120023)),
+          title: Text('Log out'),
+          onTap: _signOut,
+        ),
       ],
-    );
+    ));
   }
 }

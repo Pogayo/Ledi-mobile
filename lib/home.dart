@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'placeholder_widget.dart';
 import 'authentication.dart';
 import 'Settings.dart';
+import 'current_cycle.dart';
+import 'cycle_analysis.dart';
+import 'calender.dart';
 
 
 class Home extends StatefulWidget {
@@ -20,14 +23,8 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _currentIndex=0;
-  final List<Widget> _children =[
-    PlaceholderWidget(Colors.white),
-    PlaceholderWidget(Colors.deepOrange),
-    PlaceholderWidget(Colors.green),
-    Settings()
-  ];
 
-  _signOut() async {
+  void _signOut() async {
     try {
       await widget.auth.signOut();
       widget.logoutCallback();
@@ -40,17 +37,25 @@ class _HomeState extends State<Home> {
 
     @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-        actions: <Widget>[
-          new FlatButton(
-              child: new Text('Logout',
-                  style: new TextStyle(fontSize: 17.0, color: Colors.white)),
-              onPressed:_signOut)
-        ],
 
-      ),
+      final List<Widget> _children =[
+        CurrentCycle(),
+        Calender(),
+        CycleAnalysis(),
+        Settings(auth:widget.auth,logoutCallback:widget.logoutCallback)
+      ];
+
+      return Scaffold(
+//      appBar: AppBar(
+//        title: Text('Welcome, Lady!'),
+//        actions: <Widget>[
+//          new FlatButton(
+//              child: new Text('Logout',
+//                  style: new TextStyle(fontSize: 17.0, color: Colors.white)),
+//              onPressed:_signOut)
+//        ],
+//
+//      ),
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTabTapped, // new
@@ -68,14 +73,14 @@ class _HomeState extends State<Home> {
             title: new Text('Calender'),
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person, color: Color(0xff8731DC)),
+              icon: Icon(Icons.show_chart, color: Color(0xff8731DC)),
               title: Text('Profile')
           )
           ,
           BottomNavigationBarItem(
               icon: Icon(Icons.settings, color: Color(0xff8731DC)),
               title: Text('Settings')
-          )
+          ),
         ],
       ),
     );
