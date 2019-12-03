@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'placeholder_widget.dart';
 import 'authentication.dart';
 import 'Settings.dart';
 import 'current_cycle.dart';
@@ -46,16 +45,7 @@ class _HomeState extends State<Home> {
       ];
 
       return Scaffold(
-//      appBar: AppBar(
-//        title: Text('Welcome, Lady!'),
-//        actions: <Widget>[
-//          new FlatButton(
-//              child: new Text('Logout',
-//                  style: new TextStyle(fontSize: 17.0, color: Colors.white)),
-//              onPressed:_signOut)
-//        ],
-//
-//      ),
+
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTabTapped, // new
@@ -74,7 +64,7 @@ class _HomeState extends State<Home> {
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.show_chart, color: Color(0xff8731DC)),
-              title: Text('Profile')
+              title: Text('Analysis')
           )
           ,
           BottomNavigationBarItem(
