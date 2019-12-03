@@ -23,6 +23,7 @@ class PrivacyPolicy extends StatelessWidget{
                       "your data is safe, and that you feel safe. We will outline what kind of data we collect and what we do with it, and what we don't collect.\n\n"
 
               ),
+
               TextSpan(
                 text: " Personal data we collect\n\n",
                 style: sub_heading_style,

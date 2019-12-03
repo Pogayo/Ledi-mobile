@@ -63,7 +63,7 @@ class _HomeState extends State<Home> {
             title: new Text('Calender'),
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.show_chart, color: Color(0xff8731DC)),
+              icon: Icon(Icons.trending_up, color: Color(0xff8731DC)),
               title: Text('Analysis')
           )
           ,

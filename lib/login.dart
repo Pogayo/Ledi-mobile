@@ -168,7 +168,7 @@ class _LoginState extends State<Login> {
             Icons.lock,
             color:  Color(0xff8731DC),),
           border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+              OutlineInputBorder(borderRadius: BorderRadius.circular(24.0))),
     );
 
     final showForm=Center(
@@ -221,7 +221,7 @@ class _LoginState extends State<Login> {
   Widget showPrimaryButton() {
     return Material(
       elevation: 5.0,
-      borderRadius: BorderRadius.circular(30.0),
+      borderRadius: BorderRadius.circular(24.0),
       color: Color(0xff8731DC),
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
